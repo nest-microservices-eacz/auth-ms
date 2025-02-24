@@ -4,12 +4,13 @@ import * as Joi from 'joi';
 interface EnvVars {
   PORT: number;
   NATS_SERVERS: string[];
-  
+  MONGO_DB_URL: string;
 }
 
 const envsSchema = Joi.object({
   PORT: Joi.number().required(),
   NATS_SERVERS: Joi.array().items(Joi.string()).required(),
+  MONGO_DB_URL: Joi.string().required(),
 }).unknown(true);
 
 const { error, value } = envsSchema.validate({
@@ -25,5 +26,6 @@ const envVars: EnvVars = value;
 
 export const envs = {
   port: envVars.PORT,
-  natsServers: envVars.NATS_SERVERS
+  natsServers: envVars.NATS_SERVERS,
+  mongoDbUrl: envVars.MONGO_DB_URL,
 };
