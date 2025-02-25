@@ -20,10 +20,7 @@ export class AuthController {
 
   @MessagePattern('auth.register.user')
   registerUser(@Payload() registerDto: RegisterDto) {
-    console.log('auth.register.user');
-    console.log(registerDto);
-
-    return 'auth.register.user';
+    return this.authService.register(registerDto);
   }
 
   @MessagePattern('auth.verify.user')
