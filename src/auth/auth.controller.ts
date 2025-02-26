@@ -12,10 +12,8 @@ export class AuthController {
 
   @MessagePattern('auth.login.user')
   loginUser(@Payload() loginDto: LoginDto) {
-    console.log('auth.login.user');
-    console.log(loginDto);
+    return this.authService.login(loginDto);
 
-    return 'auth.login.user';
   }
 
   @MessagePattern('auth.register.user')

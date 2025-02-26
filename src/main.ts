@@ -21,6 +21,6 @@ async function bootstrap() {
     new ValidationPipe({ forbidNonWhitelisted: true, whitelist: true }),
   );
   await app.listen();
-  logger.log(`Orders Microservice running on port ${envs.port}`);
+  logger.log(`Auth Microservice running on port ${envs.port}`);
 }
 bootstrap();
